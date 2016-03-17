@@ -3,6 +3,6 @@ require 'sinatra'
 
 class ZuoraWeb < Sinatra::Base
   get '/' do
-    'Hello world!'
+    erb :index
   end
 end
