@@ -12,4 +12,5 @@ bundle install
 bundle exec rackup
 ```
 
-Then open your web browser at http://localhost:9292
+Then open your web browser at [http://localhost:9292](http://localhost:9292) to
+get started.
