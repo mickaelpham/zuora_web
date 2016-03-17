@@ -4,6 +4,11 @@ Zuora Web
 A simple web interface for the [Zuora](https://www.zuora.com) SOAP API using
 my [Zuora Ruy client](https://github.com/mickaelpham/zuora.git).
 
+Preview
+-------
+
+![Preview](https://raw.githubusercontent.com/mickaelpham/zuora_web/master/preview.png)
+
 Getting Started
 ---------------
 
