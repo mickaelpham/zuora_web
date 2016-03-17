@@ -2,11 +2,36 @@
   <h2>Results</h2>
 </div>
 
-<form>
-  <div class="form-group">
-    <textarea class="form-control query" rows="10"><%= @query_results.inspect %></textarea>
-  </div>
-</form>
+<% if @success %>
+  <p>Retrieved <%= @size %> record(s) from Zuora.</p>
+
+  <% if @size > 0 %>
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <% @columns.each do |column| %>
+            <th><%= column %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @records.each do |record| %>
+          <tr>
+            <% @fields.each do |field| %>
+              <td><%= record[field] %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% else %>
+  <form>
+    <div class="form-group">
+      <textarea class="form-control query" rows="7"><%= @body %></textarea>
+    </div>
+  </form>
+<% end %>
 
 <div class="page-header">
   <h2>Another query</h2>

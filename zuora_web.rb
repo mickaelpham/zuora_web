@@ -28,7 +28,21 @@ class ZuoraWeb < Sinatra::Base
         config.wsdl_location = 'wsdl/apisandbox_65.wsdl'
     end
 
-    @query_results = client.query(params['query'])
+    query_result = client.query(params['query'])
+    @success = query_result.success?
+
+    if query_result.success?
+      @size    = query_result.size
+      @records = query_result.records
+
+      if query_result.size > 0
+        @fields  = query_result.records.first.keys.reject { |k| k.match /^@/ }
+        @columns = @fields.map { |c| c.to_s.split('_').collect(&:capitalize).join }
+      end
+    else
+      @body = query_result.body
+    end
+
     erb :query_results
   end
 
