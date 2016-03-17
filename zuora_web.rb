@@ -12,6 +12,14 @@ class ZuoraWeb < Sinatra::Base
   end
 
   post '/query' do
+    save_credentials = params['save_credentials'] == 'on'
+
+    if save_credentials
+      @username         = params['username']
+      @password         = params['password']
+      @save_credentials = save_credentials
+    end
+
     client = Zuora::Client.new do |config|
         config.username      = params['username']
         config.password      = params['password']

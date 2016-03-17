@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Results</h1>
+  <h2>Results</h2>
 </div>
 
 <form>
@@ -7,3 +7,9 @@
     <textarea class="form-control query" rows="20"><%= @query_results.inspect %></textarea>
   </div>
 </form>
+
+<div class="page-header">
+  <h2>Another query</h2>
+</div>
+
+<%= erb :query_form %>

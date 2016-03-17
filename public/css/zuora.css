@@ -9,3 +9,7 @@ textarea {
 textarea.query {
   font-family: 'Andale Mono', monospace;
 }
+
+.page-header h2 {
+  margin-bottom: 0;
+}
