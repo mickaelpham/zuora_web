@@ -8,6 +8,7 @@ class ZuoraWeb < Sinatra::Base
   end
 
   get '/query' do
+    @save_credentials = true
     erb :query
   end
 
