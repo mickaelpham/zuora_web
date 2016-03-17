@@ -27,14 +27,14 @@
 
   <div class="form-group">
     <label for="input-query">Query (ZOQL)</label>
-    <textarea id="input-query" name="query" class="form-control query" rows="7" placeholder="Enter your Zuora Object Query, e.g. SELECT Id, Name FROM Account"></textarea>
+    <textarea id="input-query" name="query" class="form-control query" rows="7" placeholder="Enter your Zuora Object Query, e.g. SELECT Id, Name FROM Account"><%= @query %></textarea>
   </div>
 
   <div class="row">
     <div class="col-sm-6">
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="save_credentials" <%= 'checked="checked"' if @save_credentials %>> Preserve username and password for the session
+          <input type="checkbox" name="save_credentials" <%= 'checked="checked"' if @save_credentials %>> Preserve inputs during the session
         </label>
       </div>
     </div>

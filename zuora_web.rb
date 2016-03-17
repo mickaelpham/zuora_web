@@ -18,6 +18,7 @@ class ZuoraWeb < Sinatra::Base
     if save_credentials
       @username         = params['username']
       @password         = params['password']
+      @query            = params['query']
       @save_credentials = save_credentials
     end
 
