@@ -18,6 +18,7 @@ class ZuoraWeb < Sinatra::Base
         config.wsdl_location = 'wsdl/apisandbox_65.wsdl'
     end
 
+    @query_results = client.query(params['query'])
     erb :query_results
   end
 

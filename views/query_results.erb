@@ -2,7 +2,8 @@
   <h1>Results</h1>
 </div>
 
-<ul>
-  <li><%= @username %></li>
-  <li><%= @query %></li>
-</ul>
+<form>
+  <div class="form-group">
+    <textarea class="form-control query" rows="20"><%= @query_results.inspect %></textarea>
+  </div>
+</form>
