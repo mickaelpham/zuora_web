@@ -7,6 +7,13 @@ my [Zuora Ruy client](https://github.com/mickaelpham/zuora.git).
 Getting Started
 ---------------
 
+### WSDL
+
+You will need your Zuora WSDL. Download the file through your Zuora Settings and
+save it in the `wsdl/` folder.
+
+### Starting the server
+
 ```
 bundle install
 bundle exec rackup
