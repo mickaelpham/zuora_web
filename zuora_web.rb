@@ -9,7 +9,7 @@ class ZuoraWeb < Sinatra::Base
 
   get '/query' do
     @save_credentials = true
-    erb :query
+    erb :'query/index'
   end
 
   post '/query' do
@@ -43,7 +43,7 @@ class ZuoraWeb < Sinatra::Base
       @body = query_result.body
     end
 
-    erb :query_results
+    erb :'query/results'
   end
 
   get '/create' do
