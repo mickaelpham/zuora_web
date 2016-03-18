@@ -13,6 +13,7 @@ class ZuoraWeb < Sinatra::Base
   end
 
   post '/query' do
+    # Maintain username/password between queries if checked
     save_credentials = params['save_credentials'] == 'on'
 
     if save_credentials
@@ -22,21 +23,28 @@ class ZuoraWeb < Sinatra::Base
       @save_credentials = save_credentials
     end
 
+    wsdl_location = params['environment'] == 'production' ?
+      'wsdl/production.wsdl' :
+      'wsdl/apisandbox.wsdl'
+
     client = Zuora::Client.new do |config|
         config.username      = params['username']
         config.password      = params['password']
-        config.wsdl_location = 'wsdl/apisandbox_65.wsdl'
+        config.wsdl_location = wsdl_location
     end
 
     query_result = client.query(params['query'])
-    @success = query_result.success?
+    @success     = query_result.success?
 
     if query_result.success?
       @size    = query_result.size
       @records = query_result.records
 
       if query_result.size > 0
+        # Remove fields that start with '@' (usually, SOAP types)
         @fields  = query_result.records.first.keys.reject { |k| k.match /^@/ }
+
+        # Fancy way to restore the columns to their CamelCase values
         @columns = @fields.map { |c| c.to_s.split('_').collect(&:capitalize).join }
       end
     else

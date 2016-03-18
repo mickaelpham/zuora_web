@@ -2,7 +2,7 @@ Zuora Web
 =========
 
 A simple web interface for the [Zuora](https://www.zuora.com) SOAP API using
-my [Zuora Ruy client](https://github.com/mickaelpham/zuora.git).
+my [Zuora Ruby client](https://github.com/mickaelpham/zuora.git).
 
 Preview
 -------
@@ -16,6 +16,9 @@ Getting Started
 
 You will need your Zuora WSDL. Download the file through your Zuora Settings and
 save it in the `wsdl/` folder.
+
+Don't forget to rename it either `apisandbox.wsdl` or `production.wsdl` based on
+your environment!
 
 ### Starting the server
 
